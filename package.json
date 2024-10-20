@@ -1,0 +1,22 @@
+{
+  "name": "unit-converter",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Perg01/Unit-Converter.git"
+  },
+  "author": "Jaspreet Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Perg01/Unit-Converter/issues"
+  },
+  "homepage": "https://github.com/Perg01/Unit-Converter#readme",
+  "description": "",
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}
