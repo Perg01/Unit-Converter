@@ -1,0 +1,21 @@
+.unit-tab {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .tablinks {
+    padding: 10px 20px;
+    margin-right: 5px;
+    background-color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .tablinks.active {
+    background-color: #ccc;
+  }
+  .tabcontent {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+  }

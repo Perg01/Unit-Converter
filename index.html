@@ -1,11 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Unit Converter</title>
 </head>
 <body>
-    
+
+  <h1>Unit Converter</h1>
+
+  <div class="unit-tab">
+    <button class="tablinks" onclick="openTab(event, 'Length')">Length</button>
+    <button class="tablinks" onclick="openTab(event, 'Weight')">Weight</button>
+    <button class="tablinks" onclick="openTab(event, 'Temperature')">Temperature</button>
+  </div>
+
+  <!-- Length Tab -->
+  <div id="Length" class="tabcontent">
+    <h2>Length Converter</h2>
+    <form action="/convert-length" method="POST">
+      <label for="length-value">Enter Value:</label>
+      <input type="number" id="length-value" name="value" required>
+
+      <label for="from-unit-length">Convert From:</label>
+      <select id="from-unit-length" name="from-unit">
+        <option value="millimeter">Millimeter</option>
+        <option value="centimeter">Centimeter</option>
+        <option value="meter">Meter</option>
+        <option value="kilometer">Kilometer</option>
+        <option value="inch">Inch</option>
+        <option value="foot">Foot</option>
+        <option value="yard">Yard</option>
+        <option value="mile">Mile</option>
+      </select>
+
+      <label for="to-unit-length">Convert To:</label>
+      <select id="to-unit-length" name="to-unit">
+        <option value="millimeter">Millimeter</option>
+        <option value="centimeter">Centimeter</option>
+        <option value="meter">Meter</option>
+        <option value="kilometer">Kilometer</option>
+        <option value="inch">Inch</option>
+        <option value="foot">Foot</option>
+        <option value="yard">Yard</option>
+        <option value="mile">Mile</option>
+      </select>
+
+      <button type="submit">Convert</button>
+    </form>
+  </div>
+
+  <!-- Weight Tab -->
+  <div id="Weight" class="tabcontent">
+    <h2>Weight Converter</h2>
+    <form action="/convert-weight" method="POST">
+      <label for="weight-value">Enter Value:</label>
+      <input type="number" id="weight-value" name="value" required>
+
+      <label for="from-unit-weight">Convert From:</label>
+      <select id="from-unit-weight" name="from-unit">
+        <option value="milligram">Milligram</option>
+        <option value="gram">Gram</option>
+        <option value="kilogram">Kilogram</option>
+        <option value="ounce">Ounce</option>
+        <option value="pound">Pound</option>
+      </select>
+
+      <label for="to-unit-weight">Convert To:</label>
+      <select id="to-unit-weight" name="to-unit">
+        <option value="milligram">Milligram</option>
+        <option value="gram">Gram</option>
+        <option value="kilogram">Kilogram</option>
+        <option value="ounce">Ounce</option>
+        <option value="pound">Pound</option>
+      </select>
+
+      <button type="submit">Convert</button>
+    </form>
+  </div>
+
+  <!-- Temperature Tab -->
+  <div id="Temperature" class="tabcontent">
+    <h2>Temperature Converter</h2>
+    <form action="/convert-temperature" method="POST">
+      <label for="temperature-value">Enter Value:</label>
+      <input type="number" id="temperature-value" name="value" required>
+
+      <label for="from-unit-temperature">Convert From:</label>
+      <select id="from-unit-temperature" name="from-unit">
+        <option value="Celsius">Celsius</option>
+        <option value="Fahrenheit">Fahrenheit</option>
+        <option value="Kelvin">Kelvin</option>
+      </select>
+
+      <label for="to-unit-temperature">Convert To:</label>
+      <select id="to-unit-temperature" name="to-unit">
+        <option value="Celsius">Celsius</option>
+        <option value="Fahrenheit">Fahrenheit</option>
+        <option value="Kelvin">Kelvin</option>
+      </select>
+
+      <button type="submit">Convert</button>
+    </form>
+  </div>
+
+
+  <script src="script.js"></script>
 </body>
 </html>
