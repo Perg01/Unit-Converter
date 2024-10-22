@@ -50,7 +50,59 @@ function convertWeight(value, fromUnit, toUnit) {
     return result.toFixed(1);
 }
 
+function convertTemperature(value, fromUnit, toUnit) {
+    switch (fromUnit) {
+        case 'Celsius':
+            return fromCelsius(value, toUnit);
+        case 'Fahrenheit':
+            return fromFahrenheit(value, toUnit);
+        case 'Kelvin':
+            return fromKelvin(value, toUnit);
+        default:
+            return value;
+    }
+}
 
+function fromCelsius(value, toUnit) {
+    let result;
+    if (toUnit === 'Fahrenheit') {
+        result = (value * 9 / 5) + 32;
+    } else if (toUnit === 'Kelvin') {
+        result = value + 273.15;
+    }
+
+    return result.toFixed(0);;
+}
+
+function fromFahrenheit(value, toUnit) {
+    let result;
+    if (toUnit === 'Celsius') {
+        result = (value - 32) * 5 / 9;
+    } else if (toUnit === 'Kelvin') {
+        result = (value + 459.67) * 5 / 9;
+    }
+
+    return result.toFixed(0);
+}
+
+function fromKelvin(value, toUnit) {
+    if (toUnit === 'Celsius') {
+        result = value - 273.15;
+    } else if (toUnit === 'Fahrenheit') {
+        result = value * 9 / 5 - 459.67;
+    }
+
+    return result.toFixed(0);
+}
+
+document.querySelector('#Temperature form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const value = document.querySelector('#temperature-value').value;
+    const fromUnit = document.querySelector('#from-unit-temperature').value;
+    const toUnit = document.querySelector('#to-unit-temperature').value;
+    const result = convertTemperature(value, fromUnit, toUnit);
+    document.querySelector('#Temperature .result').textContent = `Converted Value: ${result} ${toUnit}`;
+});
 
 document.querySelector('#Length form').addEventListener('submit', (event) => {
     event.preventDefault();
