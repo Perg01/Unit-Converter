@@ -37,13 +37,37 @@ function convertLength(value, fromUnit, toUnit) {
     return result.toFixed(1);
 }
 
+function convertWeight(value, fromUnit, toUnit) {
+    const units = {
+        milligram: 0.000001,
+        gram: 0.001,
+        kilogram: 1,
+        ounce: 0.0283495,
+        pound: 0.453592
+    };
+
+    const result = (value * units[fromUnit]) / units[toUnit];
+    return result.toFixed(1);
+}
+
+
+
 document.querySelector('#Length form').addEventListener('submit', (event) => {
     event.preventDefault();
     const value = document.querySelector('#length-value').value;
     const fromUnit = document.querySelector('#from-unit-length').value;
     const toUnit = document.querySelector('#to-unit-length').value;
     const result = convertLength(value, fromUnit, toUnit);
-    document.querySelector('#Length .result').textContent = `Converted Value: ${result}`;
+    document.querySelector('#Length .result').textContent = `Converted Value: ${result} ${toUnit}`;
+});
+
+document.querySelector('#Weight form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const value = document.querySelector('#weight-value').value;
+    const fromUnit = document.querySelector('#from-unit-weight').value;
+    const toUnit = document.querySelector('#to-unit-weight').value;
+    const result = convertWeight(value, fromUnit, toUnit);
+    document.querySelector('#Weight .result').textContent = `Converted Value: ${result} ${toUnit}`;
 });
 
 document.getElementsByClassName('tablinks')[0].click();
